@@ -1,11 +1,10 @@
 #include <stdio.h>
 /**
- * main - A program
- * return 0 success 
- */
-int main(void)
+ * main- A program that prints a line 'n' it h puts functio
+ * Return: e (Success)
+  */
+int  main(void)
 {
 printf("with proper grammar, but the outcome is a piece of art,");
-return(0);
-
+return (0);
 }
