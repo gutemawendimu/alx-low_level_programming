@@ -1,47 +1,38 @@
-#include <limits.h>
-#include <math.h>
 #include <stdio.h>
-
+#define LARGEST 10000000000
 /**
- * main - entry point
- *
- * Return: Always 0.
+ * main - main block
+ * Description: Find and print the first 98 fib numbers starting with 1 and 2.
+ * Numbers should be coma and space separated.
+ * Return: 0
  */
 int main(void)
 {
-	int i;
-	int j;
-	long a_lo = 1;
-	long b_lo = 2;
-	long a_hi = 0;
-	long b_hi = 0;
-	int limit_len = floor(log10(LONG_MAX / 2));
-	long limit = pow(10, limit_len);
+	unsigned long int fr1 = 0, bk1 = 1, fr2 = 0, bk2 = 2;
+	unsigned long int hold1, hold2, hold3;
+	int count;
 
-	for (i = 0; i < 98; ++i)
+	printf("%lu, %lu, ", bk1, bk2);
+	for (count = 2; count < 98; count++)
 	{
-		if (a_hi)
+		if (bk1 + bk2 > LARGEST || fr2 > 0 || fr1 > 0)
 		{
-			printf("%ld", a_hi);
-			for (j = floor(log10(a_lo)) + 1; j < limit_len; ++j)
-				putchar('0');
+			hold1 = (bk1 + bk2) / LARGEST;
+			hold2 = (bk1 + bk2) % LARGEST;
+			hold3 = fr1 + fr2 + hold1;
+			fr1 = fr2, fr2 = hold3;
+			bk1 = bk2, bk2 = hold2;
+			printf("%lu%010lu", fr2, bk2);
 		}
-		printf("%ld", a_lo);
-		b_lo = b_lo + a_lo;
-		a_lo = b_lo - a_lo;
-		a_hi = b_hi - a_hi;
-		b_hi = b_hi + a_hi;
-		if (b_lo >= limit)
+		else
 		{
-			b_hi += b_lo / limit;
-			b_lo %= limit;
-			a_hi += a_lo / limit;
-			a_lo %= limit;
+			hold2 = bk1 + bk2;
+			bk1 = bk2, bk2 = hold2;
+			printf("%lu", bk2);
 		}
-		if (i < 97)
+		if (count != 97)
 			printf(", ");
 	}
-	putchar('\n');
-
+	printf("\n");
 	return (0);
 }
