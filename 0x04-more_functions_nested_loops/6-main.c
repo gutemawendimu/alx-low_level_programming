@@ -1,27 +1,16 @@
 #include "main.h"
 
 /**
- * print_line - entry point
+ * main - check the code for Holberton School students.
  *
- * Description: Prints lines
- *@n: number of lines
- * Return: void
+ * Return: Always 0.
  */
-
-void print_line(int n)
+int main(void)
 {
-	int num_lines;
-
-	if (n <= 0)
-	{
-		_putchar('\n');
-	}
-	else
-	{
-		for (num_lines = 1; num_lines <= n; num_lines++)
-		{
-			_putchar('_');
-		}
-		_putchar('\n');
-	}
+    print_line(0);
+    print_line(2);
+    print_line(10);
+    print_line(-4);
+    return (0);
 }
+
