@@ -1,24 +1,80 @@
 #include "main.h"
+
 /**
- * print_number - print an int numbers.
- * @n: number tested
- * Return: Always 0.
+ * print_number - prints a number
+ * @n: number to print
  */
 void print_number(int n)
 {
-	unsigned int n1;
+	int i;
+
 	if (n < 0)
 	{
-         n1 = -n;
-	 _putchar('_');
+		_putchar('-');
+		for (i = 0; i < getlen(n); i++)
+			_putchar('0' + -getnum(n, i));
 	}
 	else
 	{
-		n1 = n;
+		for (i = 0; i < getlen(n); i++)
+			_putchar('0' + getnum(n, i));
+	}
+}
+
+/**
+ * _pow - Calculates exponents
+ * @a: base
+ * @b: exponent
+ *
+ * Return: a^b
+ */
+int _pow(int a, int b)
+{
+	int i, ans;
+
+	if (b <= 0)
+		return (1);
+
+	ans = a;
+	for (i = 0; i < b - 1; i++)
+	{
+		ans *= a;
 	}
 
-         if (n1 / 10)
-	 print_number(n1 / 10);
+	return (ans);
+}
 
-    _putchar((n1 / 10) + '0');
+/**
+ * getnum - gets the 'index'th digit of num, starting from the left at 0
+ * @num: the number to extract digit from
+ * @index: the index of the desired digit with 0 being the leftmost digit
+ *
+ * Return: The 'index'th digit of num
+ */
+int getnum(int num, int index)
+{
+	int l;
+
+	l = getlen(num);
+	num = num / _pow(10, l - 1 - index);
+	return (num % 10);
+}
+
+/**
+ * getlen - gets the length of the number num
+ * @num: the number to get length of
+ *
+ * Return: length of number 'num'
+ */
+int getlen(int num)
+{
+	int i;
+
+	i = 1;
+	while (num > 9 || num < -9)
+	{
+		i++;
+		num /= 10;
+	}
+	return (i);
 }
