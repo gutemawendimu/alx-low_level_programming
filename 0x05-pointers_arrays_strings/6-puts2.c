@@ -1,15 +1,11 @@
 #include "main.h"
-
 /**
- * rev_string - This fuction print a string reverser
+ * puts2 - Write a function that prints a string, followed by a new line, to
+ * stdout.
  *
- *@s: this is the pointer that point to a string
+ * @s: This is my input string
  *
- *
- *
-*/
-
-
+ */
 
 void puts2(char *s)
 {
