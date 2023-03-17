@@ -9,7 +9,7 @@
  */
 int main(void)
 	{
-		printf("Hel, World, World, Hel.\n");
+		printf("980\n");
 
 		return (0);
 	}
