@@ -2,6 +2,7 @@
 
 /**
  * read_textfile - read a text file and print
+ * @filename: the name of the file to read
  *
  */
 ssize_t read_textfile(const char *filename, size_t letters)
