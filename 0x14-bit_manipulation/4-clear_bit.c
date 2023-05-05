@@ -1,3 +1,10 @@
+/*
+ * File: 4-clear_bit.c
+ * Auth: Gutema Wendimu
+ */
+
+
+
 #include "main.h"
 
 /**
